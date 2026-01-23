@@ -1,11 +1,6 @@
-/*
-	Script made by Loy
-	
-	Don't take this and claim it as your own,
-	and please credit me if you'll use this.
-	
-	Feel free to improve this mess though.
-*/
+///
+/// This script is part of https://github.com/femloy/OpenTower and is licensed under CC BY 4.0
+///
 
 using System;
 using System.IO;
@@ -20,10 +15,20 @@ using Newtonsoft.Json;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Diagnostics;
-using ImageMagick; // thank you new UTMT for complicating things
+using ImageMagick;
+using ImageMagick.Drawing;
+
+#region Error handling
 
 EnsureDataLoaded();
-const string ERROR_TEXT = "This script is incompatible with Pizza Tower pre-v1.1.1.\nYou can switch to a different OpenTower branch for older versions.\nAlso, don't use this with mods.";
+
+if (!ScriptQuestion("Have you read OpenTower's setup instructions?\nYou WILL have issues if you're winging this."))
+{
+	ScriptOpenURL("https://github.com/femloy/OpenTower?tab=readme-ov-file#requirements");
+	return;
+}
+
+const string ERROR_TEXT = "You're using the wrong version of Pizza Tower!\nPlease redownload the game on Steam.\nMake sure it says V1.1.28, in the bottom right, on the title screen.";
 
 if (Data.GeneralInfo.FileName.Content != "PizzaTower_GM2")
 {
@@ -35,11 +40,13 @@ if (!Data.IsVersionAtLeast(2022, 9))
     ScriptError($"Error 2\n\n{ERROR_TEXT}");
     return;
 }
-if (Data.Sprites.ByName("spr_lang_flags") == null)
+if (Data.Sprites.Count != 4640)
 {
 	ScriptError($"Error 3\n\n{ERROR_TEXT}");
     return;
 }
+
+#endregion
 
 string dataPath = $"{Path.GetDirectoryName(FilePath)}\\";
 string rootPath = $"{dataPath}Export_Data\\";
@@ -5000,12 +5007,6 @@ public class GMEvent : ResourceBase
 
 #region Functions
 
-// progress bar
-void SetupProgress(string status, double progress, double max)
-{
-	SetProgressBar(null, status, progress, max);
-}
-
 // make a json out of an object
 string stringJson(object obj)
 {
@@ -5020,9 +5021,7 @@ string stringJson(object obj)
 	// turn the class into a json and export it
 	return JsonConvert.SerializeObject(obj, settings);
 }
-void doJson(object obj, string path = "") {
-	File.WriteAllText(rootPath + path, stringJson(obj));
-}
+void doJson(object obj, string path = "") => File.WriteAllText(rootPath + path, stringJson(obj));
 
 #endregion
 
@@ -5032,6 +5031,7 @@ void DumpSprite(UndertaleSprite sprite)
 {
 	string spritePath = "sprites/" + sprite.Name.Content + "/";
 	string exportedPath = $"sprites/{sprite.Name.Content}/{sprite.Name.Content}.yy";
+	
 	Directory.CreateDirectory(rootPath + spritePath);
 
 	// setup sprite
@@ -5180,26 +5180,44 @@ void DumpSprite(UndertaleSprite sprite)
 			Directory.CreateDirectory(layersPath);
 			
 			// extract image
-			if (frame.Texture != null)
+			IMagickImage<byte> image;
+			
+			try
 			{
-				IMagickImage<byte> image;
-				try
-				{
-					// bail if it's SWF or SPINE
-					if ((int)sprite.SSpriteType != 0)
-						throw new Exception(); // to get out of the try catch
-					
-					// fetch bitmap image
-					image = worker.GetTextureFor(frame.Texture, compositeGuid + ".png", true);
-				}
-				catch
-				{
-					// give up immediately and make an empty image
-					image = new MagickImage(MagickColor.FromRgba(0, 0, 0, 0), exportedSprite.width, exportedSprite.height);
-				}
-				TextureWorker.SaveImageToFile(image, rootPath + spritePath + compositeGuid + ".png");
-				TextureWorker.SaveImageToFile(image, layersPath + layerGuid + ".png");
+				if ((int)sprite.SSpriteType != 0 || frame.Texture is null)
+					throw new Exception();
+				
+				image = worker.GetTextureFor(frame.Texture, compositeGuid + ".png", true);
 			}
+			catch
+			{
+				// source missing texture
+				image = new MagickImage(MagickColors.Black, 2, 2);
+				
+				new Drawables()
+					.FillColor(MagickColors.Fuchsia)
+					.Point(0, 0)
+					.Point(1, 1)
+					.Draw(image);
+				
+				uint BboxWidth = (uint)(exportedSprite.bbox_right - exportedSprite.bbox_left + 1);
+				uint BboxHeight = (uint)(exportedSprite.bbox_bottom - exportedSprite.bbox_top + 1);
+				
+				var resize = new MagickGeometry(BboxWidth, BboxHeight);
+				resize.IgnoreAspectRatio = true;
+				image.InterpolativeResize(resize, PixelInterpolateMethod.Nearest);
+				
+				if (BboxWidth != exportedSprite.width || BboxHeight != exportedSprite.height)
+				{
+					var canvas = new MagickGeometry(-exportedSprite.bbox_left, -exportedSprite.bbox_top, (uint)exportedSprite.width, (uint)exportedSprite.height);
+					canvas.IgnoreAspectRatio = true;
+					image.BackgroundColor = MagickColors.Transparent;
+					image.Extent(canvas);
+				}
+			}
+			
+			TextureWorker.SaveImageToFile(image, rootPath + spritePath + compositeGuid + ".png");
+			TextureWorker.SaveImageToFile(image, layersPath + layerGuid + ".png");
 			
 			// add to frames
 			var spriteFrame = new GMSprite.GMSpriteFrame();
@@ -5241,26 +5259,32 @@ void DumpSprite(UndertaleSprite sprite)
 	// finish
 	doJson(exportedSprite, spritePath + $"{exportedSprite.name}.yy");
 }
-async Task DumpSprites()
+
+public void SetupProgress(string current, double maxValue) => SetProgressBar(null, current, 0, maxValue);
+public void IncrementProgress() => IncrementProgressParallel();
+public void UpdateStatus(string status) => SetUMTConsoleText(status);
+
+public async Task DumpSprites()
 {
-	var count = 0;
-	foreach(var i in Data.Sprites)
+	SetupProgress("Sprites", Data.Sprites.Count);
+	int count = 0;
+	
+	await Parallel.ForEachAsync(Data.Sprites, (source, token) =>
 	{
-		if (ignore.Contains(i.Name.Content))
-			continue;
-		
-		SetUMTConsoleText($"({count} / {Data.Sprites.Count}) {i.Name.Content}");
-		await Task.Delay(1);
-		DumpSprite(i);
-		
-		count++;
-		// I tried a progress bar but it just didn't increment at all for some stupid ass reason
-	}
+		if (!ignore.Contains(source.Name.Content))
+		{
+			UpdateStatus($"({count} / {Data.Sprites.Count}) {source.Name.Content}");
+			DumpSprite(source);
+		}
+		Interlocked.Increment(ref count);
+		IncrementProgress();
+		return ValueTask.CompletedTask;
+	});
 }
 
 #endregion
 
-ScriptMessage("Choose the decomp's folder!\n\nIf you haven't downloaded that yet, you can still export this somewhere else. Just drag the files over later.");
+ScriptMessage("Choose the folder containing OpenTower's .YYP file.");
 
 var dialog = new FolderBrowserDialog();
 dialog.ShowNewFolderButton = false;
@@ -5311,7 +5335,13 @@ if (Data.TextureGroupInfo != null)
 }
 
 // do it
-await DumpSprites();
+StartProgressBarUpdater();
+
+await Task.Run(DumpSprites);
+
+await StopProgressBarUpdater();
+HideProgressBar();
+SetUMTConsoleText("");
 
 // Included files
 var includedFiles = new List<string>()
@@ -5346,12 +5376,9 @@ foreach (var i in includedFolders)
 Directory.CreateDirectory($"{rootPath}extensions\\fmod_gms");
 File.Copy($"{dataPath}fmod-gamemaker.dll", $"{rootPath}extensions\\fmod_gms\\fmod-gamemaker.dll", true);
 
-// cleanup
+// done
 worker.Dispose(); // UTMT new
 
-// done
-if (File.Exists($"{rootPath}PizzaTower_GM2.yyp"))
-	ScriptMessage("Done! You can open the project in GameMaker now.");
-else
-	ScriptMessage("Done! You can copy the exported files over to the project now. Replace all files if it asks you to.");
-Process.Start("explorer.exe", rootPath); // open the selected folder
+ScriptMessage("Done! You can open PizzaTower_GM2.yyp in GameMaker now.");
+
+Process.Start("explorer.exe", rootPath);

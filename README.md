@@ -10,7 +10,7 @@ You can do anything with this project as long as I'm credited.
 - [Pizza Tower on Steam](https://store.steampowered.com/app/2231450/Pizza_Tower/) *the Switch version is compiled different and won't work.*
 - [GameMaker 2023.1.1.62](https://gms.yoyogames.com/GameMaker-Installer-2023.1.1.62.exe) *other versions will bring bugs.*<br>
 - [Steamworks SDK v1.55](https://partner.steamgames.com/downloads/steamworks_sdk_155.zip) *unless you're planning to remove it.*
-- [UndertaleModTool 0.5.1.0](https://github.com/UnderminersTeam/UndertaleModTool/releases/tag/0.5.1.0)
+- [UndertaleModTool](https://github.com/UnderminersTeam/UndertaleModTool/releases/tag/0.8.4.1)
 - A reasonable amount of experience with what is known as a "Computer"
 
 This repository doesn't include any datafiles, sprites or sounds because piracy is big nonos and I'd prefer to avoid getting whooped by TDP.<br>
@@ -21,13 +21,13 @@ Because of that, now you'll have to do a whole annoying slow setup to get this t
 
 2. Make sure Pizza Tower is up to date, with no mods. If you have `.po` files around, then you probably have a mod installed.
 
-3. Open the `data.win` file in the game's folder with [UndertaleModTool](https://github.com/UnderminersTeam/UndertaleModTool/releases/tag/0.5.1.0).
+3. Open the `data.win` file in the game's folder with [UndertaleModTool](https://github.com/UnderminersTeam/UndertaleModTool/releases/tag/0.8.4.1).
 
 4. Open the "Scripts" tab at the top of the UndertaleModTool window and select "Run other script..."
 
 <img src="github/guide1.png">
 
-5. Go to OpenTower's folder and select the `PTdecompiler.csx` file. If it has an error on load, try the other, older one.
+5. Go to OpenTower's folder and select the `PTdecompiler.csx` file. If it has a weird error, try the specified [UndertaleModTool](https://github.com/UnderminersTeam/UndertaleModTool/releases/tag/0.8.4.1) version.
 
 <img src="github/guide2.png">
 
@@ -48,10 +48,10 @@ Delete the `%programdata%/GameMakerStudio2` folder while GameMaker is closed. Th
 It happens when you use a newer GameMaker version. It breaks this older one.
 
 ### ImageMagick error when opening .csx
-You have the wrong UndertaleModTool version. Try [this stable version](https://github.com/UnderminersTeam/UndertaleModTool/releases/tag/0.5.1.0) and/or try the "old" version of the script.
+You have a very old UndertaleModTool version. Try [this stable version](https://github.com/UnderminersTeam/UndertaleModTool/releases/tag/0.8.4.1).
 
 ### Please update this
-Well, I
+Well, I don't
 
 # Upgrading GameMaker
 
