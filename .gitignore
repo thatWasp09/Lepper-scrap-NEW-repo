@@ -1,5 +1,14 @@
+#
+# Delete this whole file if you're planning to make a mod!
+# Delete this whole file if you're planning to make a mod!
+# Delete this whole file if you're planning to make a mod!
+#
 folders.csx
 refreshAssetlist.csx
+/DummyOpenTower
+
+# Annoying
+sprites/*/*.yy
 
 # Prolong my lifespan
 options/extensions/Steamworks.json

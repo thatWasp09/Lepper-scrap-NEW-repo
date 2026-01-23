@@ -7,14 +7,14 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Text;
 using System.Text.RegularExpressions;
-using System.Runtime.Serialization;
-using UndertaleModLib.Models;
-using UndertaleModLib.Util;
-using Newtonsoft.Json;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Diagnostics;
+using UndertaleModLib.Models;
+using UndertaleModLib.Util;
+using Newtonsoft.Json;
 using ImageMagick;
 using ImageMagick.Drawing;
 
@@ -4983,12 +4983,12 @@ public class GMSprite : ResourceBase
 	public int collisionKind { get; set; } = 1; // 1 is rectangle
 	public int type { get; set; } = 0; // Bitmap, SWF, Spine, Vector
 	public float swfPrecision { get; set; } = 2.525f;
-	public int width { get; set; } = 64;
-	public int height { get; set; } = 64;
+	public uint width { get; set; } = 64;
+	public uint height { get; set; } = 64;
 	public IdReference textureGroupId { get; set; }
 	public List<uint> swatchColours { get; set; } // custom color palette in the image editor.
-	public int gridX { get; set; }
-	public int gridY { get; set; }
+	public uint gridX { get; set; }
+	public uint gridY { get; set; }
 	public List<GMSpriteFrame> frames { get; set; } = new List<GMSpriteFrame>();
 	public GMSequence sequence { get; set; }
 	public List<GMImageLayer> layers { get; set; } = new List<GMImageLayer>();
@@ -5005,7 +5005,151 @@ public class GMEvent : ResourceBase
 
 #endregion
 
-#region Functions
+#region JSON
+
+public static class YYJson
+{
+	static string INDENT = "  ";
+	
+	/// <summary>
+	/// Depth for objects to start being flattened
+	/// </summary>
+	static int flatDepth = 2;
+	
+	/// <summary>
+	/// Add newline and indentation depending on depth
+	/// </summary>
+	static void YYIndent(StringBuilder sb, int depth)
+	{
+		sb.Append('\n');
+		foreach (var item in Enumerable.Range(0, depth))
+			sb.Append(INDENT);
+	}
+	
+	/// <summary>
+	/// Format a JSON like the weird inconsistent way GameMaker does it
+	/// </summary>
+	public static string Format(string json)
+	{
+		StringBuilder tcws = new();
+		Stack<bool> depth = new();
+
+		bool isObject = false;
+		bool escapeNextChar = false;
+		bool isString = false;
+
+		for (var _ = 0; _ < json.Length; _++)
+		{
+			char c = json[_];
+			char nextC = '\0';
+			char prevC = '\0';
+
+			if (_ > 0)
+				prevC = json[_ - 1];
+			if (_ < json.Length - 1)
+				nextC = json[_ + 1];
+
+			switch (c)
+			{
+				case '\\':
+					escapeNextChar = !escapeNextChar;
+					tcws.Append(c);
+					break;
+
+				case '\"':
+					if (escapeNextChar)
+						goto default;
+
+					isString = !isString;
+					tcws.Append(c);
+					break;
+
+				case '{':
+					if (isString)
+						goto default;
+
+					tcws.Append(c);
+					depth.Push(isObject);
+					if (depth.Count <= flatDepth)
+					{
+						isObject = false;
+						if (nextC != '}')
+							YYIndent(tcws, depth.Count);
+					}
+					else
+						isObject = true;
+					break;
+
+				case '}':
+					if (isString)
+						goto default;
+
+					if (prevC != '{')
+					{
+						tcws.Append(',');
+						if (!isObject)
+							YYIndent(tcws, depth.Count - 1);
+					}
+					isObject = depth.Pop();
+					tcws.Append(c);
+					break;
+
+				case '[':
+					if (isString)
+						goto default;
+
+					tcws.Append(c);
+					depth.Push(isObject);
+					isObject = false;
+
+					if (nextC != ']')
+						YYIndent(tcws, depth.Count);
+					break;
+
+				case ']':
+					if (isString)
+						goto default;
+
+					isObject = depth.Pop();
+					if (prevC != '[')
+					{
+						tcws.Append(',');
+						YYIndent(tcws, depth.Count);
+					}
+					tcws.Append(c);
+					break;
+
+				case ':':
+					if (isString)
+						goto default;
+
+					tcws.Append(c);
+					if (!isObject)
+						tcws.Append(' ');
+					break;
+
+				case ',':
+					if (isString)
+						goto default;
+
+					tcws.Append(c);
+
+					if (!isObject)
+						YYIndent(tcws, depth.Count);
+					break;
+
+				default:
+					tcws.Append(c);
+					break;
+			}
+
+			if (c != '\\')
+				escapeNextChar = false;
+		}
+
+		return tcws.ToString();
+	}
+}
 
 // make a json out of an object
 string stringJson(object obj)
@@ -5013,13 +5157,13 @@ string stringJson(object obj)
 	// prepare json writer
 	var settings = new JsonSerializerSettings
 	{
-		Formatting = Newtonsoft.Json.Formatting.Indented,
+		//Formatting = Newtonsoft.Json.Formatting.Indented,
 		ObjectCreationHandling = ObjectCreationHandling.Replace,
 		ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor
 	};
 
 	// turn the class into a json and export it
-	return JsonConvert.SerializeObject(obj, settings);
+	return YYJson.Format(JsonConvert.SerializeObject(obj, settings));
 }
 void doJson(object obj, string path = "") => File.WriteAllText(rootPath + path, stringJson(obj));
 
@@ -5038,8 +5182,8 @@ void DumpSprite(UndertaleSprite sprite)
 	var exportedSprite = new GMSprite
 	{
 		name = sprite.Name.Content,
-		width = Math.Max((int)sprite.Width, 1),
-		height = Math.Max((int)sprite.Height, 1),
+		width = sprite.Width,
+		height = sprite.Height,
 		bbox_left = sprite.MarginLeft,
 		bbox_right = sprite.MarginRight,
 		bbox_bottom = sprite.MarginBottom,
@@ -5056,16 +5200,8 @@ void DumpSprite(UndertaleSprite sprite)
 	*/
 	if (sprite.Textures.Count > 0)
 	{
-		exportedSprite.width = (int)sprite.Textures[0].Texture.BoundingWidth;
-		exportedSprite.height = (int)sprite.Textures[0].Texture.BoundingHeight;
-	}
-
-	// tags
-	var tagid = UndertaleTags.GetAssetTagID(Data, sprite);
-	if (Data.Tags != null && Data.Tags.AssetTags.ContainsKey(tagid))
-	{
-		foreach (var tag in Data.Tags.AssetTags[tagid])
-			exportedSprite.tags.Add(tag.Content);
+		exportedSprite.width = sprite.Textures[0].Texture.BoundingWidth;
+		exportedSprite.height = sprite.Textures[0].Texture.BoundingHeight;
 	}
 
 	// figure out collision mask
@@ -5078,27 +5214,26 @@ void DumpSprite(UndertaleSprite sprite)
 			case 0: exportedSprite.collisionKind = 1; break; // rectangle
 			case 1: exportedSprite.collisionKind = 0; break; // precise
 			case 2: exportedSprite.collisionKind = 5; break; // rotated rectangle
-
-			// there are more, but UTMT isn't smart enough figure those out. pizza tower doesn't use them. I think.
 		}
 	}
 
 	// figure out the sprite origin setting
-	int ox = sprite.OriginX, oy = sprite.OriginY, ow = (int)sprite.Width, oh = (int)sprite.Height, og = 9;
-	if (ox == 0)
-		og = 0;
-	else if (ox == ow / 2)
-		og = 1;
-	else if (ox == ow)
-		og = 2;
+	int og = 0;
+	
+	if (sprite.OriginX == MathF.Floor(exportedSprite.width / 2f))
+		og += 1;
+	else if (sprite.OriginX == exportedSprite.width)
+		og += 2;
+	else if (sprite.OriginX != 0)
+		og = 9;
 
 	if (og != 9)
 	{
-		if (oy == oh / 2)
+		if (sprite.OriginY == MathF.Floor(exportedSprite.height / 2f))
 			og += 3;
-		else if (oy == oh)
+		else if (sprite.OriginY == exportedSprite.height)
 			og += 6;
-		else if (oy != 0)
+		else if (sprite.OriginY != 0)
 			og = 9;
 	}
 	exportedSprite.origin = og;
@@ -5245,16 +5380,11 @@ void DumpSprite(UndertaleSprite sprite)
 	}
 
 	// texture page
-	if (tgrp.StartsWith("__YY__") && tgrp.Contains("_YYG_AUTO_GEN_TEX_GROUP_NAME_"))
-		exportedSprite.For3D = true;
-	else
+	exportedSprite.textureGroupId = new IdReference
 	{
-		exportedSprite.textureGroupId = new IdReference
-		{
-			name = tgrp,
-			path = $"texturegroups/{tgrp}"
-		};
-	}
+		name = tgrp,
+		path = $"texturegroups/{tgrp}"
+	};
 
 	// finish
 	doJson(exportedSprite, spritePath + $"{exportedSprite.name}.yy");
@@ -5377,8 +5507,11 @@ Directory.CreateDirectory($"{rootPath}extensions\\fmod_gms");
 File.Copy($"{dataPath}fmod-gamemaker.dll", $"{rootPath}extensions\\fmod_gms\\fmod-gamemaker.dll", true);
 
 // done
-worker.Dispose(); // UTMT new
+worker.Dispose();
 
-ScriptMessage("Done! You can open PizzaTower_GM2.yyp in GameMaker now.");
+if (File.Exists($"{rootPath}PizzaTower_GM2.yyp"))
+	ScriptMessage("Done! You can open PizzaTower_GM2.yyp in GameMaker now.");
+else
+	ScriptMessage("Done! You can move the exported files over to the OpenTower folder now. Replace all files if it asks you to.");
 
 Process.Start("explorer.exe", rootPath);

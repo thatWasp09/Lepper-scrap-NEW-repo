@@ -7,37 +7,40 @@ OpenTower is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/
 You can do anything with this project as long as I'm credited.
 
 # Requirements
-- [Pizza Tower on Steam](https://store.steampowered.com/app/2231450/Pizza_Tower/) *the Switch version is compiled different and won't work.*
-- [GameMaker 2023.1.1.62](https://gms.yoyogames.com/GameMaker-Installer-2023.1.1.62.exe) *other versions will bring bugs.*<br>
-- [Steamworks SDK v1.55](https://partner.steamgames.com/downloads/steamworks_sdk_155.zip) *unless you're planning to remove it.*
+- [Pizza Tower on Steam](https://store.steampowered.com/app/2231450/Pizza_Tower/) - *the Switch version is compiled different and won't work*
+- [GameMaker 2023.1.1.62 (Easier?)](https://gms.yoyogames.com/GameMaker-Installer-2023.1.1.62.exe) or [LTS 2022 (Newer)](https://releases.gamemaker.io/release-notes/2022/0)<br>
+If you use LTS, you have to download and apply `2022.0.1.30` from File > Preferences > Runtime Feeds > Master<br>
+*Any other runtimes/versions will have bugs. See [Upgrading GameMaker](#upgrading-gamemaker) for more info*
+- [Steamworks SDK v1.55](https://partner.steamgames.com/downloads/steamworks_sdk_155.zip) - *unless you're planning to remove it*
 - [UndertaleModTool](https://github.com/UnderminersTeam/UndertaleModTool/releases/tag/0.8.4.1)
 - A reasonable amount of experience with what is known as a "Computer"
 
-This repository doesn't include any datafiles, sprites or sounds because piracy is big nonos and I'd prefer to avoid getting whooped by TDP.<br>
-Because of that, now you'll have to do a whole annoying slow setup to get this thing working:
+This repository doesn't include any datafiles, sprites or sounds because piracy is big nonos and I'd prefer to avoid getting whooped by TDP. Because of that, now you'll have to do a whole annoying slow setup to get this thing working:
 
 # Installation
-1. Download OpenTower and every requirement above. Extract each thing where you'll want to keep them.<br>
+1. Download OpenTower and every requirement above. Extract each thing where you'll want to keep them.
 
-2. Make sure Pizza Tower is up to date, with no mods. If you have `.po` files around, then you probably have a mod installed.
+2. Delete the `.gitignore` file in the OpenTower folder to avoid issues on your own future projects.
 
-3. Open the `data.win` file in the game's folder with [UndertaleModTool](https://github.com/UnderminersTeam/UndertaleModTool/releases/tag/0.8.4.1).
+3. Make sure Pizza Tower is up to date, with no mods. If you have `.po` files around, then you probably have a mod installed.
 
-4. Open the "Scripts" tab at the top of the UndertaleModTool window and select "Run other script..."
+4. Open the `data.win` file in the game's folder with [UndertaleModTool](https://github.com/UnderminersTeam/UndertaleModTool/releases/tag/0.8.4.1).
+
+5. Open the "Scripts" tab at the top of the UndertaleModTool window and select "Run other script..."
 
 <img src="github/guide1.png">
 
-5. Go to OpenTower's folder and select the `PTdecompiler.csx` file. If it has a weird error, try the specified [UndertaleModTool](https://github.com/UnderminersTeam/UndertaleModTool/releases/tag/0.8.4.1) version.
+6. Go to OpenTower's folder and select the `PTdecompiler.csx` file. If it has a weird error, try the specified [UndertaleModTool](https://github.com/UnderminersTeam/UndertaleModTool/releases/tag/0.8.4.1) version.
 
 <img src="github/guide2.png">
 
-6. It will ask you to select a folder. Select the root OpenTower folder. It should have all of these folders inside of it:
+7. It will ask you to select a folder. Select the root OpenTower folder. It should have all of these folders inside of it:
 
 <img src="github/guide3.png">
 
-7. Wait. It takes a while to dump every frame of every sprite. Don't panic.
-8. The decompilation is now ready to open in [GameMaker](https://gms.yoyogames.com/GameMaker-Installer-2023.1.1.62.exe). The project file to open is `PizzaTower_GM2.yyp`.
-9. When the project is open, look for `Extensions > Steamworks` and change the SDK location setting to the [Steamworks SDK](https://partner.steamgames.com/downloads/steamworks_sdk_155.zip) folder.
+8. Wait. It takes a while to dump every frame of every sprite. Don't panic.
+9. The decompilation is now ready to open in [GameMaker](https://gms.yoyogames.com/GameMaker-Installer-2023.1.1.62.exe). The project file to open is `PizzaTower_GM2.yyp`.
+10. When the project is open, look for `Extensions > Steamworks` and change the SDK location setting to the [Steamworks SDK](https://partner.steamgames.com/downloads/steamworks_sdk_155.zip) folder.
 
 **If you don't remove Steamworks before making a build, *it'll just run the game on Steam instead, unmodified.***<br>
 I recommend removing the extension entirely for standalone mods. Look through all Steam related code and comment out any use of the `steam_` functions.
