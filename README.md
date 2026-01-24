@@ -1,5 +1,5 @@
 # OpenTower
-A mostly accurate Pizza Tower decompilation, without any optimizations or unused stuff removed.<br>
+An almost fully accurate Pizza Tower decompilation, without any optimizations and no unused stuff removed.<br>
 Meant for more experienced people who prefer modding without the code holding their hand.
 
 # Attribution
@@ -54,7 +54,7 @@ It happens when you use a newer GameMaker version. It breaks this older one.
 You have a very old UndertaleModTool version. Try [this stable version](https://github.com/UnderminersTeam/UndertaleModTool/releases/tag/0.8.4.1).
 
 ### Please update this
-Well, I don't
+Well, I don't think
 
 # Upgrading GameMaker
 
