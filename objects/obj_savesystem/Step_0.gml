@@ -60,8 +60,8 @@ if room == hub_loadingscreen && state != 2
 		icon_alpha = 0;
 		with obj_achievementtracker
 		{
-			achievement_get_steam_achievements(achievements_update);
-			achievement_get_steam_achievements(achievements_notify);
+			achievement_get__achievements(achievements_update);
+			achievement_get__achievements(achievements_notify);
 		}
 		with (instance_create(0, 0, obj_loadingscreen))
 		{

@@ -38,7 +38,14 @@ function scr_player_freefall()
 		vsp += 0.5;
 	}
 	if (floor(image_index) == image_number - 1 && sprite_index == spr_bodyslamstart)
+	{
 		sprite_index = spr_bodyslamfall;
+		if islepper
+		{
+		freefallsmash = 12
+		vsp = 12
+		}	
+	}
 	if (floor(image_index) == image_number - 1 && sprite_index == spr_shotgunjump1)
 		sprite_index = spr_shotgunjump3;
 	move = key_left + key_right;

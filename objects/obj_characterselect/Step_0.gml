@@ -12,7 +12,7 @@ if !ready
 		else if selected > 1
 			selected = 0;
 	}
-	if ((key_jump || key_start) && (!global.swapmode || obj_inputAssigner.swap_ready))
+	if ((key_jump) && (!global.swapmode || obj_inputAssigner.swap_ready))
 	{
 		ready = true;
 		alarm[0] = 100;

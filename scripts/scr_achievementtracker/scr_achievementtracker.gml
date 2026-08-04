@@ -197,45 +197,45 @@ function achievement_unlock(_name, _display_name, _sprite, _index = 0)
 			ds_queue_enqueue(obj_achievementtracker.unlock_queue, [_sprite, _index]);
 		}
 	}
-	scr_steam_unlock_achievement(_name);
+	scr__unlock_achievement(_name);
 	
 	// moved to separate function
 	/*
-	if global.steam_api
+	if global._api
 	{
-		var steamach = ds_map_find_value(global.steam_achievements, _name);
-		if !is_undefined(steamach)
+		var ach = ds_map_find_value(global._achievements, _name);
+		if !is_undefined(ach)
 		{
-			trace("Steam achievement unlocked! ", steamach);
-			if !steam_get_achievement(steamach)
-				steam_set_achievement(steamach);
+			trace(" achievement unlocked! ", ach);
+			if !_get_achievement(ach)
+				_set_achievement(ach);
 		}
 		else
-			trace("Could not find steam achievement! ", _name);
+			trace("Could not find  achievement! ", _name);
 	}
 	else
-		trace("Steam API not initialized!");
+		trace(" API not initialized!");
 	*/
 	
 	with obj_achievementviewer
 		event_perform(ev_other, ev_room_start);
 }
-function scr_steam_unlock_achievement(_achievement)
+function scr__unlock_achievement(_achievement)
 {
-	if global.steam_api
+	if global._api
 	{
-		var steamach = ds_map_find_value(global.steam_achievements, _achievement);
-		if !is_undefined(steamach)
+		var ach = ds_map_find_value(global._achievements, _achievement);
+		if !is_undefined(ach)
 		{
-			trace("Steam achievement unlocked! ", steamach);
-			if !steam_get_achievement(steamach)
-				steam_set_achievement(steamach);
+			trace(" achievement unlocked! ", ach);
+			if !_get_achievement(ach)
+				_set_achievement(ach);
 		}
 		else
-			trace("Could not find steam achievement! ", _achievement);
+			trace("Could not find  achievement! ", _achievement);
 	}
 	else
-		trace("Steam API not initialized!");
+		trace(" API not initialized!");
 }
 function palette_unlock(_achievement, _palettename, _paletteselect, _texture = noone, peppino = true)
 {
@@ -308,7 +308,7 @@ function achievement_save_variables(achievement_array)
 		obj_savesystem.ini_str = ini_close();
 	}
 }
-function achievement_get_steam_achievements(achievement_array)
+function achievement_get__achievements(achievement_array)
 {
 	for (var i = 0; i < array_length(achievement_array); i++)
 	{
@@ -317,7 +317,7 @@ function achievement_get_steam_achievements(achievement_array)
 		with b
 		{
 			if ini_read_real("achievements", name, false)
-				scr_steam_unlock_achievement(name);
+				scr__unlock_achievement(name);
 		}
 		obj_savesystem.ini_str = ini_close();
 	}

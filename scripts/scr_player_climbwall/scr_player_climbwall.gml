@@ -90,7 +90,7 @@ function scr_player_climbwall()
 			}
 			if (wallspeed < 0 && place_meeting(x, y + 12, obj_solid))
 				wallspeed = 0;
-			if !ispeppino && !skateboarding
+			if !ispeppino && !skateboarding && !islepper
 			{
 				with (instance_create(x, y, obj_noiseeffect))
 					sprite_index = spr_noisewalljumpeffect;

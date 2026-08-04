@@ -3,7 +3,13 @@ function state_player_jump()
 	var maxmovespeed = 8;
 	var maxmovespeed2 = 6;
 	var turnmovespeed = 2;
+	if islepper
+	var accel = 0.15;
+	else
 	var accel = 0.5;
+	if islepper
+	var deccel = 0.5;
+	else
 	var deccel = 0.1;
 	var jumpspeed = -11;
 	var machspeed = 6;

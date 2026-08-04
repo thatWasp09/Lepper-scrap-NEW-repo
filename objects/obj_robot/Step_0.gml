@@ -181,7 +181,7 @@ if state == states.slap && image_index > 11
 {
 	if snd == 0
 	{
-		fmod_event_one_shot_3d("event:/sfx/enemies/robotslapsteam", x, y);
+		fmod_event_one_shot_3d("event:/sfx/enemies/robotslap", x, y);
 		fmod_event_instance_play("event:/sfx/enemies/minijohnpunch", x, y);
 	}
 	snd = true;

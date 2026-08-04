@@ -29,7 +29,7 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
 var txt = lang_get_value_newline("swap_press_start");
-txt = string_replace_all(txt, "%", lang_get_value("start_button_steam"));
+txt = string_replace_all(txt, "%", lang_get_value("start_button_"));
 
 if global.swapmode && obj_inputAssigner.player_input_device[0] == -2
 	tdp_draw_text(xx + irandom_range(-1, 1), yy + irandom_range(-1, 1), txt);

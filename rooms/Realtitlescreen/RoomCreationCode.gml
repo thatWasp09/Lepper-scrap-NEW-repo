@@ -306,7 +306,8 @@ enum states
 	UNKNOWN_11, // 303, used by obj_stickhat
 	UNKNOWN_12, // 304
 	machcancelstart,
-	machcancel
+	machcancel,
+	V_bounce
 }
 
 global.coop = false;

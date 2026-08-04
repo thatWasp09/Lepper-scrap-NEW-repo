@@ -33,6 +33,6 @@ draw_line_width(current_room.x, current_room.y + current_room.height, current_ro
 draw_line_width(current_room.x + current_room.width, current_room.y, current_room.x + current_room.width, current_room.y + current_room.height, w);
 
 with obj_editorobject
-	event_perform(ev_draw, 0);
+	event_perform(ev_draw, ev_draw_normal);
 with obj_component
-	event_perform(ev_draw, 0);
+	event_perform(ev_draw, ev_draw_normal);

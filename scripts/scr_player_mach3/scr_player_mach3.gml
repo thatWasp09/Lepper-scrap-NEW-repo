@@ -220,6 +220,8 @@ function scr_player_mach3()
 			}
 			if (!grounded && place_meeting(x + sign(hsp), y, obj_climbablewall) && !place_meeting(x + sign(hsp), y, obj_destructibles) && !place_meeting(x + sign(hsp), y, obj_metalblock))
 			{
+				if movespeed = 20
+				peppercrazyrunclimb = true
 				var _climb = true;
 				if !ispeppino
 					_climb = ledge_bump(40);
@@ -391,5 +393,27 @@ function scr_player_mach3()
 		randomize_animations([spr_suplexmash1, spr_suplexmash2, spr_suplexmash3, spr_suplexmash4, spr_player_suplexmash5, spr_player_suplexmash6, spr_player_suplexmash7, spr_punch]);
 		image_index = 0;
 		state = states.lungeattack;
+	}
+}
+
+function scr_playerM_mach3start()
+{
+	hsp = (xscale * movespeed) + (railmovespeed * raildir);
+	
+	movespeed = Approach(movespeed, 12, 0.1)
+	
+	image_speed = 0.35
+	
+	if (floor(image_index) == image_number - 1)
+	{
+	state = states.mach3;
+	sprite_index = spr_mach4;
+	image_index = 0;
+	movespeed = 12;
+	}
+	else if !grounded
+	{
+	movespeed = 0
+	vsp = 0
 	}
 }

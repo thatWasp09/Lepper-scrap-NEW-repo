@@ -17,11 +17,20 @@ function scr_player_freefallland()
 	hsp = 0;
 	if floor(image_index) == image_number - 1
 	{
+		if !islepper
+		{
 		facehurt = true;
 		sprite_index = spr_facehurtup;
+		}
+		else 
+		{
+		facehurt = false;
+		sprite_index = spr_idle;
+		}
 		image_index = 0;
 		state = states.normal;
 		jumpstop = true;
 	}
+	
 	image_speed = 0.35;
 }

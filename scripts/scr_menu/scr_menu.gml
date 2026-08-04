@@ -127,7 +127,7 @@ function menu_lang_value(entry)
 	{
 		case "option_controller_superjump":
 		case "option_controller_groundpound":
-			text = string_replace_all(text, "%", lang_get_value("joystick_steam")); // joystick_switch?
+			text = string_replace_all(text, "%", lang_get_value("joystick_")); // joystick_switch?
 			break;
 	}
 	return text;

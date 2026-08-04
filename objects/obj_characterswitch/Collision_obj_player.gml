@@ -1,9 +1,9 @@
 with other
 {
-	if character == "P"
-		character = "N";
+	if !islepper
+		islepper = true;
 	else
-		character = "P";
+		islepper = false;
 	respawn = 200;
 	scr_characterspr();
 	instance_destroy(other);

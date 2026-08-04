@@ -13,7 +13,7 @@ function scr_player_tumble()
 		movespeed = 6;
 	if (!grounded && (sprite_index == spr_crouchslip || sprite_index == spr_machroll || sprite_index == spr_mach2jump || sprite_index == spr_backslide || sprite_index == spr_backslideland))
 	{
-		if !ispeppino
+		if !ispeppino && !islepper
 		{
 			sprite_index = spr_playerN_divebomb;
 			state = states.machcancel;
@@ -25,11 +25,18 @@ function scr_player_tumble()
 			image_index = 0;
 			exit;
 		}
-		else
+		else if !islepper
 		{
 			vsp = 10;
 			sprite_index = spr_dive;
 			fmod_event_instance_play(snd_dive);
+		}
+		else
+		{
+			vsp = 13
+			image_index = 0
+			sprite_index = spr_dive
+			fmod_event_instance_play(snd_dive)
 		}
 	}
 	if sprite_index == spr_tumble && grounded
@@ -48,7 +55,7 @@ function scr_player_tumble()
 	}
 	if sprite_index == spr_dive && key_jump
 	{
-		if ispeppino
+		if ispeppino || islepper
 		{
 			sprite_index = spr_player_poundcancel1;
 			image_index = 0;
@@ -115,7 +122,7 @@ function scr_player_tumble()
 		sprite_index = spr_tumble;
 		movespeed = 14;
 	}
-	if ((state != states.freefall && ((place_meeting(x + xscale, y, obj_solid) || scr_solid_slope(x + xscale, y)) && !place_meeting(x + hsp, y, obj_rollblock) && (!place_meeting(x + hsp, y, obj_rattumble) || sprite_index != spr_tumble) && !place_meeting(x + hsp, y, obj_destructibles))) || place_meeting(x, y, obj_timedgate))
+	if (((state != states.freefall && ((place_meeting(x + xscale, y, obj_solid) || scr_solid_slope(x + xscale, y)) && !place_meeting(x + hsp, y, obj_rollblock) && (!place_meeting(x + hsp, y, obj_rattumble) || sprite_index != spr_tumble) && !place_meeting(x + hsp, y, obj_destructibles))) || place_meeting(x, y, obj_timedgate)))
 	{
 		hsp = 0;
 		movespeed = 0;

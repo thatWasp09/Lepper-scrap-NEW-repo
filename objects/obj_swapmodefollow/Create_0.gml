@@ -7,6 +7,7 @@ usable = true;
 spritequeue = ds_queue_create();
 ispeppino = false;
 isgustavo = false;
+islepper = false
 animatronic = 0;
 character = "P";
 alarm[0] = 5;

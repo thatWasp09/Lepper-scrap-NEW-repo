@@ -4,7 +4,7 @@ function scr_collide_destructibles()
 	{
 		if ((state == states.jump && sprite_index == spr_playerN_noisebombspinjump)
 		|| (ghostdash && sprite_index != spr_ghostidle) || state == states.machcancel
-		|| state == states.slipbanan || state == states.rideweenie || state == states.trickjump
+		|| state == states.slipbanan || state == states.V_bounce || state == states.rideweenie || state == states.trickjump
 		|| state == states.ratmountbounce || state == states.noisecrusher
 		|| (state == states.pogo && pogochargeactive == 1))
 		{
@@ -35,7 +35,7 @@ function scr_collide_destructibles()
 		if (state == states.trashroll || state == states.UNKNOWN_9 || state == states.boxxedpepspin
 		|| ratmount_movespeed >= 12 || state == states.ratmountpunch || state == states.ratmounttumble
 		|| state == states.punch || state == states.handstandjump || state == states.ratmountattack
-		|| state == states.lungeattack || state == states.cheeseball || state == states.bombpepside
+		|| state == states.lungeattack || state == states.V_bounce || state == states.cheeseball || state == states.bombpepside
 		|| state == states.rocket || state == states.shotgundash || state == states.faceplant
 		|| state == states.slipnslide || state == states.tacklecharge || sprite_index == spr_barrelroll
 		|| sprite_index == spr_barrelslipnslide || state == states.chainsawbump || state == states.mach3
@@ -72,7 +72,7 @@ function scr_collide_destructibles()
 		}
 		
 		if ((state == states.knightpep || sprite_index == spr_lonegustavo_groundpoundstart
-		|| state == states.ratmountbounce || state == states.machcancel
+		|| state == states.ratmountbounce || state == states.V_bounce || state == states.machcancel
 		|| sprite_index == spr_lonegustavo_groundpound || state == states.jetpackjump
 		|| state == states.firemouth || state == states.slipbanan || state == states.superslam
 		|| state == states.hookshot || (state == states.bombpepup && bombup_dir == 1)) && vsp > 0)
@@ -155,7 +155,7 @@ function scr_collide_destructibles()
 		
 		if (vsp <= 0.5 && (state == states.jump || state == states.machcancel || state == states.UNKNOWN_8
 		|| state == states.ratmountjump || state == states.UNKNOWN_9 || state == states.mach3 
-		|| state == states.machcancel || state == states.mach2 || state == states.antigrav || state == states.pogo
+		|| state == states.machcancel || state == states.V_bounce || state == states.mach2 || state == states.antigrav || state == states.pogo
 		|| (state == states.bombpepup && bombup_dir == -1) || state == states.punch || state == states.climbwall
 		|| state == states.fireass || state == states.Sjump || state == states.UNKNOWN_10
 		|| state == states.cheeseballclimbwall || state == states.mach3 || state == states.machcancel

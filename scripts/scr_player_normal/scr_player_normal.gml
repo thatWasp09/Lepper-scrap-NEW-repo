@@ -2,7 +2,13 @@ function state_player_normal()
 {
 	var maxmovespeed = 8;
 	var maxmovespeed2 = 6;
+	if islepper
+	var accel = 0.25;
+	else
 	var accel = 0.5;
+	if islepper
+	var deccel = 0.35;
+	else
 	var deccel = 0.1;
 	var jumpspeed = -11;
 	
@@ -88,12 +94,17 @@ function state_player_normal()
 			movespeed += accel;
 		else if (floor(movespeed) == maxmovespeed)
 			movespeed = maxmovespeed2;
+		if !islepper
+		{
 		if (movespeed < (floor(maxmovespeed2) / 2) && move != 0)
 			image_speed = 0.35;
 		else if (movespeed > (floor(maxmovespeed2) / 2) && movespeed < maxmovespeed2)
 			image_speed = 0.45;
 		else
 			image_speed = 0.6;
+		}
+		else
+		image_speed = 0.65;
 		if !machslideAnim && !landAnim && !shotgunAnim
 		{
 			machslideAnim = false;
