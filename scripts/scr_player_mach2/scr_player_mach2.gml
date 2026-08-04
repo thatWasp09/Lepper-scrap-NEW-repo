@@ -30,7 +30,7 @@ function scr_player_mach2()
 	if grounded && vsp > 0
 		jumpstop = false;
 	
-	if input_buffer_jump > 0 && can_jump && sprite_index != spr_clownjump && !(move == 1 && xscale == -1) && !(move == -1 && xscale == 1)
+	if input_buffer_jump > 0 && !islepper && can_jump && sprite_index != spr_clownjump && !(move == 1 && xscale == -1) && !(move == -1 && xscale == 1)
 	{
 		input_buffer_jump = 0;
 		hsp = movespeed * xscale;
@@ -94,7 +94,21 @@ function scr_player_mach2()
 	}
 	
 	if floor(image_index) == image_number - 1 && sprite_index == spr_mach1
+	{
+		if islepper
+		{
+		movespeed = 12;
+		sprite_index = spr_mach4;
+		
+	}
+		else
 		sprite_index = spr_mach;
+	}
+	if islepper && sprite_index != spr_mach1 && grounded 
+	{
+	movespeed = 12;
+	sprite_index = spr_mach4;
+	}
 	if floor(image_index) == image_number - 1 && sprite_index == spr_longjump
 		sprite_index = spr_longjumpend;
 	if floor(image_index) == image_number - 1 && sprite_index == spr_playerN_skateboarddoublejump

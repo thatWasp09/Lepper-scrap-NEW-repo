@@ -61,7 +61,10 @@ noisemachcancelbuffer = 0;
 noisewalljump = 0;
 noisedoublejump = false;
 
-islepper = false
+islepper = false;
+wallslide = false;
+savedmovespeed = 0;
+lepperboostbuffer = 0;
 
 lastroom_soundtest = room;
 lastroom_secretportalID = -4;
