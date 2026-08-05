@@ -1,4 +1,4 @@
-function scr_player_climbwall() //gml_Script_scr_player_climbwall
+function scr_player_climbwall()
 {
     switch character
     {
@@ -245,8 +245,6 @@ function scr_player_climbwall() //gml_Script_scr_player_climbwall
                 movespeed = 10
                 railmovespeed = 0
                 state = states.mach2
-                if (islepper && (!skateboarding))
-                    state = states.mach3
                 image_index = 0
                 sprite_index = spr_walljumpstart
                 if skateboarding

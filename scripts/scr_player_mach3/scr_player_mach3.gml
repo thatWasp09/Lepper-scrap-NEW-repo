@@ -398,26 +398,7 @@ function scr_player_mach3()
 		image_index = 0;
 		state = states.lungeattack;
 	}
-}
-
-function scr_playerM_mach3start()
-{
-	hsp = (xscale * movespeed) + (railmovespeed * raildir);
 	
-	movespeed = Approach(movespeed, 12, 0.1)
-	
-	image_speed = 0.35
-	
-	if (floor(image_index) == image_number - 1)
-	{
-	state = states.mach3;
-	sprite_index = spr_mach4;
-	image_index = 0;
+	if (movespeed <= 12)
 	movespeed = 12;
-	}
-	else if !grounded
-	{
-	movespeed = 0
-	vsp = 0
-	}
 }

@@ -642,7 +642,7 @@ function scr_characterspr()
 		spr_mach3jump = spr_playerL_machjump
 		spr_mach4 = spr_playerL_machrun
 		spr_machclimbwall = spr_playerN_climbwall
-		spr_dive = spr_playerN_dive
+		spr_dive = spr_playerL_dive
 		spr_machroll = spr_playerN_machroll
 		spr_hitwall = spr_playerN_mach3hitwall
 		spr_superjumpland = spr_playerN_Sjumpland
@@ -705,12 +705,12 @@ function scr_characterspr()
 		spr_superjumpleft = spr_playerN_Sjumpmoveleft
 		spr_swingding = spr_playerN_swingding
 		spr_swingdingend = spr_playerN_swingdingend
-		spr_haulingjump = spr_playerN_haulingjump
-		spr_haulingidle = spr_playerN_haulingidle
-		spr_haulingwalk = spr_playerN_haulingmove
-		spr_haulingstart = spr_playerN_haulingstart
-		spr_haulingfall = spr_playerN_haulingfall
-		spr_haulingland = spr_playerN_haulingland
+		spr_haulingjump = spr_playerL_haulingjump
+		spr_haulingidle = spr_playerL_haulingidle
+		spr_haulingwalk = spr_playerL_haulingwalk
+		spr_haulingstart = spr_playerL_haulingstart
+		spr_haulingfall = spr_playerL_haulingfall
+		spr_haulingland = spr_playerL_haulingstart
 		spr_uppercutfinishingblow = spr_playerN_uppercut
 		spr_finishingblow1 = spr_playerN_finishingblow1
 		spr_finishingblow2 = spr_playerN_finishingblow2
