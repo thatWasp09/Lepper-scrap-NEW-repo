@@ -818,6 +818,6 @@ function scr_characterspr()
 		spr_superspringplayer = spr_playerN_superspring
 		spr_suplexcancel = spr_playerN_suplexcancel
 		spr_mortthrow = spr_playerN_mortthrow
-		spr_palette = spr_noisepalette
+		spr_palette = lepperpalette
 	}
 }

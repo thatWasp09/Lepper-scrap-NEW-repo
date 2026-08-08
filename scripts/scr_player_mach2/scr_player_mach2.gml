@@ -106,6 +106,7 @@ function scr_player_mach2()
 	}
 	if (islepper && sprite_index != spr_mach1 && sprite_index != spr_walljumpstart && sprite_index != spr_walljumpend && grounded)
 	{
+	if movespeed <= 12
 	movespeed = 12;
 	sprite_index = spr_mach4;
 	}

@@ -325,6 +325,7 @@ for (var i = 0; i < array_length(data_arr); i++)
 {
 	global.game[i] = scr_read_game(data_arr[i] + ".ini");
 	global.gameN[i] = scr_read_game(data_arr[i] + "N.ini");
+	global.gameL[i] = scr_read_game(data_arr[i] + "LEP.ini");
 }
 global.newtoppin[0] = false;
 global.newtoppin[1] = false;
