@@ -65,6 +65,8 @@ islepper = false;
 wallslide = false;
 savedmovespeed = 0;
 lepperboostbuffer = 0;
+lepperbombthrow = false;
+lepperaim = 0;
 
 lastroom_soundtest = room;
 lastroom_secretportalID = -4;

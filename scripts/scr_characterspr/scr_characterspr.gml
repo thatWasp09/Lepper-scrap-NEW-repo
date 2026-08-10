@@ -551,16 +551,16 @@ function scr_characterspr()
 	{
 		spr_idle = spr_playerL_idle
 		spr_move = spr_playerL_move
-		spr_crawl = spr_playerN_crawl
+		spr_crawl = spr_playerL_crawl
 		spr_hurt = spr_playerN_hurt
 		spr_jump = spr_playerL_jump
 		spr_jump2 = spr_player_jump2
 		spr_fall = spr_playerL_fall
 		spr_fall2 = spr_player_fall2
-		spr_crouch = spr_playerN_crouch
+		spr_crouch = spr_playerL_crouch
 		spr_crouchjump = spr_playerN_crouchjump
 		spr_crouchfall = spr_playerN_crouchfall
-		spr_couchstart = spr_playerN_crouchstart
+		spr_couchstart = spr_playerL_gocrouch
 		spr_bump = spr_playerN_bump
 		spr_land = spr_playerL_land
 		spr_land2 = spr_playerL_land
@@ -583,8 +583,8 @@ function scr_characterspr()
 		spr_catched = spr_playerN_catched
 		spr_rampjump = spr_playerN_rampjump
 		spr_mrpinch = spr_playerN_mrpinch
-		spr_breakdanceuppercut = spr_playerN_breakdanceuppercut
-		spr_breakdanceuppercutend = spr_playerN_breakdanceuppercutend
+		spr_breakdanceuppercut = spr_playerL_breakdanceuppercut
+		spr_breakdanceuppercutend = spr_playerL_breakdanceuppercut
 		spr_mach1 = spr_playerL_machstart
 		spr_mach = spr_playerN_mach
 		spr_secondjump1 = spr_playerN_secondjump1
@@ -604,7 +604,7 @@ function scr_characterspr()
 		spr_stomp = spr_playerN_stomp
 		spr_stompprep = spr_playerN_stompprep
 		spr_crouchslide = spr_playerN_crouchslip
-		spr_crouch = spr_playerN_crouch
+		spr_crouch = spr_playerL_crouch
 		spr_bump = spr_playerN_bump
 		spr_victory = spr_playerN_victory
 		spr_hurt = spr_playerN_hurt

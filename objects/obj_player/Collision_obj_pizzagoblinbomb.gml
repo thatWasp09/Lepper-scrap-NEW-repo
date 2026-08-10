@@ -9,6 +9,8 @@ if state != states.boxxedpepspin
 			state = states.bombgrab;
 			image_index = 0;
 			sprite_index = spr_haulingstart;
+			lepperbombthrow = false;
+			lepperaim = 0;
 			other.defused = true;
 			bombgrabID = other.id;
 			if !ispeppino

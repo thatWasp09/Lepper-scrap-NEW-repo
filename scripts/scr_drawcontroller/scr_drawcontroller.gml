@@ -250,4 +250,6 @@ function draw_player()
 			draw_sprite(spr_revolvercharge, pistolcharge, x, y - 70);
 	}
 	pattern_reset();
+	if (lepperbombthrow == true && state == states.bombgrab && islepper == true)
+        draw_sprite_ext(spr_playerL_bombarrow, 0, x, (y - 75), xscale, 1, (lepperaim * xscale), image_blend, image_alpha)
 }
