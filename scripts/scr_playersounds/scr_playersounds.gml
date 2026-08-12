@@ -69,27 +69,44 @@ function scr_playersounds()
 		}
 		else
 			fmod_event_instance_stop(freefallsnd, true);
-		if ((ispeppino && (state == states.mach2 || state == states.mach3 || state == states.climbwall)) || (state == states.rocket && sprite_index != spr_rocketstart))
-		{
-			fmod_event_instance_set_paused(machsnd, false);
-			if (!fmod_event_instance_is_playing(machsnd))
-				fmod_event_instance_play(machsnd);
-			var s = 0;
-			if state == states.mach2 && sprite_index == spr_mach1 && grounded
-				s = 1;
-			else if ((state == states.mach2 && sprite_index == spr_mach) || state == states.climbwall)
-				s = 2;
-			else if state == states.mach3 && sprite_index != spr_crazyrun
-				s = 3;
-			else if sprite_index == spr_crazyrun
-				s = 4;
-			if state == states.rocket
-				s = 4;
-			fmod_event_instance_set_3d_attributes(machsnd, x, y);
-			fmod_event_instance_set_parameter(machsnd, "state", s, true);
-		}
-		else
-			fmod_event_instance_stop(machsnd, true);
+	if ((ispeppino && (!islepper) && (state == states.mach2 || state == states.mach3 || state == states.climbwall)) || (state == states.rocket && sprite_index != spr_rocketstart))
+        {
+            fmod_event_instance_set_paused(machsnd, false)
+            if (!fmod_event_instance_is_playing(machsnd))
+                fmod_event_instance_play(machsnd)
+            var s = 0
+            if (((state == states.mach2 && grounded) || state == states.mach3) && sprite_index == spr_mach1)
+                s = 1
+            else if ((state == states.mach2 && sprite_index == spr_mach) || (state == states.climbwall && ((!islepper) || skateboarding)))
+                s = 2
+            else if (state == states.mach3 && sprite_index != spr_crazyrun && sprite_index != spr_longjump && sprite_index != spr_longjumpend && sprite_index != spr_walljumpstart && sprite_index != spr_walljumpend && sprite_index != spr_mach2jump && sprite_index != spr_playerN_sidewayspin && sprite_index != spr_playerN_sidewayspinend)
+                s = 3
+            else if (sprite_index == spr_crazyrun)
+                s = 4
+            if (state == states.rocket)
+                s = 4
+            fmod_event_instance_set_3d_attributes(machsnd, x, y)
+            fmod_event_instance_set_parameter(machsnd, "state", s, true)
+        }
+        else
+            fmod_event_instance_stop(machsnd, true)
+        if (islepper && state == states.mach3)
+        {
+            fmod_event_instance_set_paused(machsndL, false)
+            if (!fmod_event_instance_is_playing(machsndL))
+                fmod_event_instance_play(machsndL)
+            s = 0
+            if (sprite_index == spr_mach1)
+                s = 1
+            else if (sprite_index != spr_crazyrun && sprite_index != spr_longjump && sprite_index != spr_longjumpend && sprite_index != spr_walljumpstart && sprite_index != spr_walljumpend && sprite_index != spr_mach2jump && sprite_index != spr_playerN_sidewayspin && sprite_index != spr_playerN_sidewayspinend)
+                s = 2
+            else if (sprite_index == spr_crazyrun)
+                s = 3
+            fmod_event_instance_set_3d_attributes(machsndL, x, y)
+            fmod_event_instance_set_parameter(machsndL, "state", s, true)
+        }
+        else
+            fmod_event_instance_stop(machsndL, true)
 		if ((state == states.knightpepslopes && grounded && vsp > 0) || state == states.grind || (state == states.trashroll && grounded && vsp > 0 && sprite_index == spr_player_trashslide))
 		{
 			if (!fmod_event_instance_is_playing(knightslidesnd))
