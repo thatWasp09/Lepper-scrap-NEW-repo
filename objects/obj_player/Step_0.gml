@@ -931,7 +931,7 @@ if state != states.mach2 && state != states.mach3 && state != states.trickjump &
 	ramp = false;
 	ramp_points = false;
 }
-if (state != states.door && state != states.chainsaw && state != states.hit && place_meeting(x, y, obj_boxofpizza))
+if (state != states.door && state != states.chainsaw && state != states.hit && place_meeting(x, y, obj_boxofpizza) && sprite_index != spr_playerL_leppercopter)
 	state = states.crouch;
 if shoot_buffer > 0
 	shoot_buffer--;
@@ -1331,7 +1331,7 @@ if toomuchalarm1 > 0
 }
 if restartbuffer > 0
 	restartbuffer--;
-if ((y > (room_height + 300) || y < -800) && !place_meeting(x, y, obj_verticalhallway) && restartbuffer <= 0 && !verticalhallway && state != states.gameover && state != states.gotoplayer && !global.levelreset && room != boss_pizzaface && room != tower_outside && room != boss_pizzafacefinale && state != states.gameover && !instance_exists(obj_backtohub_fadeout) && state != states.backtohub)
+if ((y > (room_height + 300) || y < -800) && !place_meeting(x, y, obj_verticalhallway) && restartbuffer <= 0 && !verticalhallway && state != states.gameover && state != states.gotoplayer && !global.levelreset && room != boss_pizzaface && room != tower_outside && room != boss_pizzafacefinale && state != states.gameover && !instance_exists(obj_backtohub_fadeout) && state != states.backtohub && sprite_index != spr_playerL_leppercopter)
 {
 	if room != Mainmenu && room != tower_outside && room != Realtitlescreen && room != Longintro && room != Endingroom && room != Johnresurrectionroom && room != Creditsroom && room != rank_room
 	{
@@ -1412,9 +1412,9 @@ if (movespeed > 12 && abs(hsp) > 12 && state == states.mach3 && state != states.
 	}
 }
 scr_collide_destructibles();
-if state != states.backtohub && state != states.ghostpossess && state != states.gotoplayer && state != states.debugstate && state != states.titlescreen && state != states.tube && state != states.grabbed && state != states.door && state != states.Sjump && state != states.ejected && state != states.comingoutdoor && state != states.boulder && state != states.keyget && state != states.victory && state != states.portal && state != states.timesup && state != states.gottreasure && state != states.gameover
+if state != states.backtohub && state != states.ghostpossess && state != states.gotoplayer && state != states.debugstate && state != states.titlescreen && state != states.tube && state != states.grabbed && state != states.door && state != states.Sjump && state != states.ejected && state != states.comingoutdoor && state != states.boulder && state != states.keyget && state != states.victory && state != states.portal && state != states.timesup && state != states.gottreasure && state != states.gameover  && sprite_index != spr_playerL_leppercopter
 	scr_collide_player();
-if (state == states.tube || state == states.gotoplayer || state == states.debugstate)
+if (state == states.tube || state == states.gotoplayer || state == states.debugstate || sprite_index == spr_playerL_leppercopter)
 {
 	x += hsp;
 	y += vsp;

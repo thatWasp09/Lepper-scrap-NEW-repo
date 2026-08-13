@@ -5,6 +5,25 @@ function scr_player_actor()
 		if (image_index > image_number - 1)
 			image_index = image_number - 1;
 	}
+	    if (sprite_index == spr_playerL_leppercopter)
+    {
+        hsp = 0;
+        movespeed = 0;
+        vsp = Approach(vsp, 5, 0.3);
+        image_speed = 0.35;
+        
+        if (y >= gatey)
+        {
+            y = gatey;
+            sprite_index = spr_land;
+            image_index = 0;
+            landAnim = false;
+            tauntstoredstate = states.normal;
+            state = states.normal;
+        }
+        
+        exit;
+    }
 	cutscene = true;
 	movespeed = 0;
 	var _room_x = 0;

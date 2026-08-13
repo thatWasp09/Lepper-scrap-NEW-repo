@@ -7164,6 +7164,7 @@
     {"id":{"name":"spr_elevatorlock","path":"sprites/spr_elevatorlock/spr_elevatorlock.yy",},"order":0,},
     {"id":{"name":"spr_pizzasona30","path":"sprites/spr_pizzasona30/spr_pizzasona30.yy",},"order":0,},
     {"id":{"name":"spr_bazooka_missile","path":"sprites/spr_bazooka_missile/spr_bazooka_missile.yy",},"order":0,},
+    {"id":{"name":"spr_playerL_leppercopter","path":"sprites/spr_playerL_leppercopter/spr_playerL_leppercopter.yy",},"order":37,},
     {"id":{"name":"spr_harddoughblockdead","path":"sprites/spr_harddoughblockdead/spr_harddoughblockdead.yy",},"order":0,},
     {"id":{"name":"spr_wartvdude","path":"sprites/spr_wartvdude/spr_wartvdude.yy",},"order":0,},
     {"id":{"name":"spr_bomb_1","path":"sprites/spr_bomb_1/spr_bomb_1.yy",},"order":0,},

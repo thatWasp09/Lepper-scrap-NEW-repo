@@ -226,15 +226,49 @@ if (place_meeting(x, y, obj_exitgate))
 	with (instance_place(x, y, obj_exitgate))
 		other.x = x;
 }
-if room == rank_room
+
+if (place_meeting(x, y, obj_exitgate))
 {
-	x = rankpos_x;
-	y = rankpos_y;
+    global.prank_cankillenemy = true;
+    
+    with (instance_place(x, y, obj_exitgate))
+    {
+        other.x = x;
+        
+        if (other.islepper && room != tower_entrancehall && room != tower_tutorial1 && room != tower_finalhallway)
+        {
+            other.roomstartx = other.x;
+            other.roomstarty = other.y;
+            other.state = states.actor;
+            other.sprite_index = spr_playerL_leppercopter;
+            other.image_speed = 0;
+            other.xscale = 1;
+            
+            if (room == medieval_1 || room == sewer_1)
+                other.xscale = -1;
+            
+            other.gatey = other.y;
+            other.y = camera_get_view_y(view_camera[0]) - 50;
+            other.vsp = 6;
+            image_index = 0;
+        }
+    }
 }
+
+if (room == rank_room)
+{
+    x = rankpos_x;
+    y = rankpos_y;
+}
+
 x = floor(x);
 y = floor(y);
-roomstartx = x;
-roomstarty = y;
+
+if (sprite_index != spr_playerL_leppercopter)
+{
+    roomstartx = x;
+    roomstarty = y;
+}
 with obj_roomposoverride
 {
 	if targetDoor == other.targetDoor

@@ -151,6 +151,8 @@ if (instance_exists(player) && !lock && player.state != states.timesup && player
 			var ty = target.y + offset_y;
 			if target.state == states.backtohub
 				ty = target.backtohubstarty;
+				if (target.sprite_index == spr_playerL_leppercopter)
+                ty = target.gatey;
 			if (target.cutscene || (target.collision_flags & colflag.secret) > 0)
 			{
 				if player.state == states.actor && room == tower_pizzafacehall
