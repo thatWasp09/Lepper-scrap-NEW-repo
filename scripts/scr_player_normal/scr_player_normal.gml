@@ -381,10 +381,13 @@ function state_player_normal()
 		sprite_index = spr_breakdanceuppercut;
 		fmod_event_instance_play(snd_uppercut);
 		
-		if ispeppino
-			vsp = -14;
-		else
-			vsp = -20;
+		if (ispeppino)
+                    vsp = -10;
+                else
+                    vsp = -21;
+                
+                if (islepper)
+                    vsp = -17;
 		
 		movespeed = hsp;
 		if key_attack // high jump going left

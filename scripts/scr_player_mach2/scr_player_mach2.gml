@@ -335,10 +335,13 @@ function scr_player_mach2()
 		image_index = 0;
 		sprite_index = spr_breakdanceuppercut;
 		fmod_event_instance_play(snd_uppercut);
-		if ispeppino
-			vsp = -10;
-		else
-			vsp = -21;
+		if (ispeppino)
+                    vsp = -10;
+                else
+                    vsp = -21;
+                
+                if (islepper)
+                    vsp = -17;
 		movespeed = hsp;
 		particle_set_scale(particle.highjumpcloud2, xscale, 1);
 		create_particle(x, y, particle.highjumpcloud2, 0);

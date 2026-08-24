@@ -52,3 +52,11 @@ else if (state == states.mini && ministate != states.transition && (other.instak
 	spr_dead = spr_pepperman_minifall;
 	instance_destroy();
 }
+if (other.state == states.parry && (state == states.shoulderbash || state == states.freefall || state == states.shoulderturn || state == states.groundpoundland))
+{
+state = states.stun;
+stunned = 1000;
+thrown = false;
+hsp = -image_xscale * 8;
+vsp = -4;
+}
