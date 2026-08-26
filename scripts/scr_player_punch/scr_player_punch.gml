@@ -26,6 +26,26 @@ function scr_player_punch()
 			movespeed = abs(movespeed);
 			state = states.normal;
 		}
+		if (input_buffer_slap > 0 && (!key_up) && islepper && (!grounded))
+        {
+            input_buffer_shoot = 0
+            if (move != 0)
+                xscale = move
+            input_buffer_slap = 0
+            input_buffer_jump = 0
+            savedmove = xscale
+            sprite_index = spr_playerL_Sjumpcancel
+            image_index = 0
+            vsp = -6
+            state = states.machcancel
+            movespeed = 10 * xscale
+            lepperkickbuffer = 12
+            with (instance_create(x, y, obj_crazyrunothereffect))
+                image_xscale = other.xscale
+            particle_set_scale((5 << 0), xscale, 1)
+            create_particle(x, y, (5 << 0), 0)
+            return;
+        }
 		if punch_afterimage > 0
 			punch_afterimage--;
 		else if vsp < 0

@@ -53,6 +53,19 @@ function scr_player_mortjump()
 		sprite_index = spr_playermortland;
 		image_index = 0;
 	}
+	if (islepper && key_jump)
+    {
+        scr_fmod_soundeffect(jumpsnd, x, y)
+        fmod_event_one_shot_3d("event:/sfx/mort/doublejump", x, y)
+        jumpstop = false
+        input_buffer_jump = 0
+        state = states.mortjump
+        sprite_index = spr_playermortjumpstart
+        image_index = 0
+        vsp = -11
+        repeat (4)
+            create_debris(x, y, spr_feather)
+    }
 	else if !doublejump && key_jump && dj
 	{
 		scr_fmod_soundeffect(jumpsnd, x, y);
