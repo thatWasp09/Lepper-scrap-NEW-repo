@@ -1,424 +1,94 @@
 {
-  "HTile": false,
-  "VTile": false,
-  "For3D": false,
-  "DynamicTexturePage": false,
-  "preMultiplyAlpha": false,
-  "edgeFiltering": false,
-  "collisionTolerance": 0,
-  "bbox_left": 0,
-  "bbox_right": 257,
-  "bbox_top": 0,
-  "bbox_bottom": 251,
-  "origin": 4,
-  "bboxMode": 0,
-  "collisionKind": 1,
-  "type": 0,
-  "swfPrecision": 2.525,
-  "width": 258,
-  "height": 252,
-  "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default"
-  },
-  "swatchColours": null,
-  "gridX": 0,
-  "gridY": 0,
-  "frames": [
-    {
-      "resourceVersion": "1.1",
-      "name": "0",
-      "tags": [],
-      "resourceType": "GMSpriteFrame"
-    },
-    {
-      "resourceVersion": "1.1",
-      "name": "1",
-      "tags": [],
-      "resourceType": "GMSpriteFrame"
-    },
-    {
-      "resourceVersion": "1.1",
-      "name": "2",
-      "tags": [],
-      "resourceType": "GMSpriteFrame"
-    },
-    {
-      "resourceVersion": "1.1",
-      "name": "3",
-      "tags": [],
-      "resourceType": "GMSpriteFrame"
-    },
-    {
-      "resourceVersion": "1.1",
-      "name": "4",
-      "tags": [],
-      "resourceType": "GMSpriteFrame"
-    },
-    {
-      "resourceVersion": "1.1",
-      "name": "5",
-      "tags": [],
-      "resourceType": "GMSpriteFrame"
-    },
-    {
-      "resourceVersion": "1.1",
-      "name": "6",
-      "tags": [],
-      "resourceType": "GMSpriteFrame"
-    },
-    {
-      "resourceVersion": "1.1",
-      "name": "7",
-      "tags": [],
-      "resourceType": "GMSpriteFrame"
-    },
-    {
-      "resourceVersion": "1.1",
-      "name": "8",
-      "tags": [],
-      "resourceType": "GMSpriteFrame"
-    },
-    {
-      "resourceVersion": "1.1",
-      "name": "9",
-      "tags": [],
-      "resourceType": "GMSpriteFrame"
-    },
-    {
-      "resourceVersion": "1.1",
-      "name": "10",
-      "tags": [],
-      "resourceType": "GMSpriteFrame"
-    }
-  ],
-  "sequence": {
-    "tracks": [
-      {
-        "spriteId": null,
-        "keyframes": {
-          "resourceType": "KeyframeStore<SpriteFrameKeyframe>",
-          "Keyframes": [
-            {
-              "id": "13731252-c71c-4d0f-a2e3-01b804fba0d6",
-              "Key": 0.0,
-              "Length": 1.0,
-              "Stretch": false,
-              "Disabled": false,
-              "IsCreationKey": false,
-              "Channels": {
-                "0": {
-                  "Id": {
-                    "name": "0",
-                    "path": "sprites/spr_playerL_supertaunt1/spr_playerL_supertaunt1.yy"
-                  },
-                  "resourceVersion": "1.0",
-                  "name": "",
-                  "tags": [],
-                  "resourceType": "SpriteFrameKeyframe"
-                }
-              },
-              "resourceType": "Keyframe<SpriteFrameKeyframe>",
-              "resourceVersion": "1.0"
-            },
-            {
-              "id": "113f7821-b8c4-4b16-ae86-67253091a164",
-              "Key": 1.0,
-              "Length": 1.0,
-              "Stretch": false,
-              "Disabled": false,
-              "IsCreationKey": false,
-              "Channels": {
-                "0": {
-                  "Id": {
-                    "name": "1",
-                    "path": "sprites/spr_playerL_supertaunt1/spr_playerL_supertaunt1.yy"
-                  },
-                  "resourceVersion": "1.0",
-                  "name": "",
-                  "tags": [],
-                  "resourceType": "SpriteFrameKeyframe"
-                }
-              },
-              "resourceType": "Keyframe<SpriteFrameKeyframe>",
-              "resourceVersion": "1.0"
-            },
-            {
-              "id": "76a8e731-f540-405a-8895-4bd5f7ed8e55",
-              "Key": 2.0,
-              "Length": 1.0,
-              "Stretch": false,
-              "Disabled": false,
-              "IsCreationKey": false,
-              "Channels": {
-                "0": {
-                  "Id": {
-                    "name": "2",
-                    "path": "sprites/spr_playerL_supertaunt1/spr_playerL_supertaunt1.yy"
-                  },
-                  "resourceVersion": "1.0",
-                  "name": "",
-                  "tags": [],
-                  "resourceType": "SpriteFrameKeyframe"
-                }
-              },
-              "resourceType": "Keyframe<SpriteFrameKeyframe>",
-              "resourceVersion": "1.0"
-            },
-            {
-              "id": "e1a1a8d8-57d6-47b6-85bf-000818b856fe",
-              "Key": 3.0,
-              "Length": 1.0,
-              "Stretch": false,
-              "Disabled": false,
-              "IsCreationKey": false,
-              "Channels": {
-                "0": {
-                  "Id": {
-                    "name": "3",
-                    "path": "sprites/spr_playerL_supertaunt1/spr_playerL_supertaunt1.yy"
-                  },
-                  "resourceVersion": "1.0",
-                  "name": "",
-                  "tags": [],
-                  "resourceType": "SpriteFrameKeyframe"
-                }
-              },
-              "resourceType": "Keyframe<SpriteFrameKeyframe>",
-              "resourceVersion": "1.0"
-            },
-            {
-              "id": "ffe4917c-f15e-4327-acf6-995e092f5d36",
-              "Key": 4.0,
-              "Length": 1.0,
-              "Stretch": false,
-              "Disabled": false,
-              "IsCreationKey": false,
-              "Channels": {
-                "0": {
-                  "Id": {
-                    "name": "4",
-                    "path": "sprites/spr_playerL_supertaunt1/spr_playerL_supertaunt1.yy"
-                  },
-                  "resourceVersion": "1.0",
-                  "name": "",
-                  "tags": [],
-                  "resourceType": "SpriteFrameKeyframe"
-                }
-              },
-              "resourceType": "Keyframe<SpriteFrameKeyframe>",
-              "resourceVersion": "1.0"
-            },
-            {
-              "id": "8f0177d1-181d-46cc-9d74-315a1f2c4874",
-              "Key": 5.0,
-              "Length": 1.0,
-              "Stretch": false,
-              "Disabled": false,
-              "IsCreationKey": false,
-              "Channels": {
-                "0": {
-                  "Id": {
-                    "name": "5",
-                    "path": "sprites/spr_playerL_supertaunt1/spr_playerL_supertaunt1.yy"
-                  },
-                  "resourceVersion": "1.0",
-                  "name": "",
-                  "tags": [],
-                  "resourceType": "SpriteFrameKeyframe"
-                }
-              },
-              "resourceType": "Keyframe<SpriteFrameKeyframe>",
-              "resourceVersion": "1.0"
-            },
-            {
-              "id": "834233ac-321c-4024-b884-41879b565673",
-              "Key": 6.0,
-              "Length": 1.0,
-              "Stretch": false,
-              "Disabled": false,
-              "IsCreationKey": false,
-              "Channels": {
-                "0": {
-                  "Id": {
-                    "name": "6",
-                    "path": "sprites/spr_playerL_supertaunt1/spr_playerL_supertaunt1.yy"
-                  },
-                  "resourceVersion": "1.0",
-                  "name": "",
-                  "tags": [],
-                  "resourceType": "SpriteFrameKeyframe"
-                }
-              },
-              "resourceType": "Keyframe<SpriteFrameKeyframe>",
-              "resourceVersion": "1.0"
-            },
-            {
-              "id": "cebc7f06-1326-4f80-934a-d833b412a56c",
-              "Key": 7.0,
-              "Length": 1.0,
-              "Stretch": false,
-              "Disabled": false,
-              "IsCreationKey": false,
-              "Channels": {
-                "0": {
-                  "Id": {
-                    "name": "7",
-                    "path": "sprites/spr_playerL_supertaunt1/spr_playerL_supertaunt1.yy"
-                  },
-                  "resourceVersion": "1.0",
-                  "name": "",
-                  "tags": [],
-                  "resourceType": "SpriteFrameKeyframe"
-                }
-              },
-              "resourceType": "Keyframe<SpriteFrameKeyframe>",
-              "resourceVersion": "1.0"
-            },
-            {
-              "id": "995e5ce3-db85-44a2-9aa0-2f1607d14afa",
-              "Key": 8.0,
-              "Length": 1.0,
-              "Stretch": false,
-              "Disabled": false,
-              "IsCreationKey": false,
-              "Channels": {
-                "0": {
-                  "Id": {
-                    "name": "8",
-                    "path": "sprites/spr_playerL_supertaunt1/spr_playerL_supertaunt1.yy"
-                  },
-                  "resourceVersion": "1.0",
-                  "name": "",
-                  "tags": [],
-                  "resourceType": "SpriteFrameKeyframe"
-                }
-              },
-              "resourceType": "Keyframe<SpriteFrameKeyframe>",
-              "resourceVersion": "1.0"
-            },
-            {
-              "id": "912991b7-426c-47fe-8d2f-a5f8fcd87d41",
-              "Key": 9.0,
-              "Length": 1.0,
-              "Stretch": false,
-              "Disabled": false,
-              "IsCreationKey": false,
-              "Channels": {
-                "0": {
-                  "Id": {
-                    "name": "9",
-                    "path": "sprites/spr_playerL_supertaunt1/spr_playerL_supertaunt1.yy"
-                  },
-                  "resourceVersion": "1.0",
-                  "name": "",
-                  "tags": [],
-                  "resourceType": "SpriteFrameKeyframe"
-                }
-              },
-              "resourceType": "Keyframe<SpriteFrameKeyframe>",
-              "resourceVersion": "1.0"
-            },
-            {
-              "id": "49086b94-f97a-4031-aa79-7b733f42defa",
-              "Key": 10.0,
-              "Length": 1.0,
-              "Stretch": false,
-              "Disabled": false,
-              "IsCreationKey": false,
-              "Channels": {
-                "0": {
-                  "Id": {
-                    "name": "10",
-                    "path": "sprites/spr_playerL_supertaunt1/spr_playerL_supertaunt1.yy"
-                  },
-                  "resourceVersion": "1.0",
-                  "name": "",
-                  "tags": [],
-                  "resourceType": "SpriteFrameKeyframe"
-                }
-              },
-              "resourceType": "Keyframe<SpriteFrameKeyframe>",
-              "resourceVersion": "1.0"
-            }
-          ],
-          "resourceVersion": "1.0"
-        },
-        "name": "frames",
-        "trackColour": 0,
-        "inheritsTrackColour": true,
-        "builtinName": 0,
-        "traits": 0,
-        "interpolation": 1,
-        "tracks": [],
-        "events": [],
-        "isCreationTrack": false,
-        "modifiers": [],
-        "resourceVersion": "1.0",
-        "tags": [],
-        "resourceType": "GMSpriteFramesTrack"
-      }
-    ],
-    "visibleRange": null,
-    "spriteId": {
-      "name": "spr_playerL_supertaunt1",
-      "path": "sprites/spr_playerL_supertaunt1/spr_playerL_supertaunt1.yy"
-    },
-    "timeUnits": 1,
-    "playback": 0,
-    "playbackSpeed": 1.0,
-    "playbackSpeedType": 1,
-    "autoRecord": true,
-    "volume": 1.0,
-    "length": 11.0,
-    "events": {
-      "resourceType": "KeyframeStore<MessageEventKeyframe>",
-      "Keyframes": [],
-      "resourceVersion": "1.0"
-    },
-    "moments": {
-      "resourceType": "KeyframeStore<MomentsEventKeyframe>",
-      "Keyframes": [],
-      "resourceVersion": "1.0"
-    },
-    "lockOrigin": false,
-    "showBackdrop": true,
-    "showBackdropImage": false,
-    "backdropImagePath": "",
-    "backdropImageOpacity": 0.5,
-    "backdropWidth": 1366,
-    "backdropHeight": 768,
-    "backdropXOffset": 0.0,
-    "backdropYOffset": 0.0,
-    "xorigin": 129,
-    "yorigin": 126,
-    "eventToFunction": {},
-    "eventStubScript": null,
-    "resourceVersion": "1.4",
-    "name": "spr_playerL_supertaunt1",
-    "tags": [],
-    "resourceType": "GMSequence"
-  },
-  "layers": [
-    {
-      "visible": true,
-      "isLocked": false,
-      "blendMode": 0,
-      "opacity": 100.0,
-      "displayName": "default",
-      "resourceVersion": "1.0",
-      "name": "default",
-      "tags": [],
-      "resourceType": "GMImageLayer"
-    }
-  ],
-  "nineSlice": null,
-  "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy"
-  },
+  "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_playerL_supertaunt1",
-  "tags": [],
-  "resourceType": "GMSprite"
+  "bbox_bottom": 235,
+  "bbox_left": 25,
+  "bbox_right": 239,
+  "bbox_top": 31,
+  "bboxMode": 0,
+  "collisionKind": 1,
+  "collisionTolerance": 0,
+  "DynamicTexturePage": false,
+  "edgeFiltering": false,
+  "For3D": false,
+  "frames": [
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ee336a6c-d6f2-448d-9b5e-1dca2b0f5c96",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"af02914d-557a-40f9-b328-6e37afb94801",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"eecc89e8-dc95-4acf-94b7-110a678d9b43",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"3415e7b8-7400-4f94-95b2-068b4fdb9f9e",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ba47914e-ef3c-419f-8009-468edd80b130",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"edca807c-df15-466c-8347-1524616874cb",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"e97357cd-b940-41cd-abd1-2599e0677593",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"064d567d-ed9f-468d-a59d-50325752fcc0",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"92f0b8a9-ee4c-44a7-991b-5496a19f6752",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"0c7c7a14-a459-4add-8062-a652b56a4c04",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"3d3c52b5-8d24-421d-a88d-b88535ce0123",},
+  ],
+  "gridX": 0,
+  "gridY": 0,
+  "height": 252,
+  "HTile": false,
+  "layers": [
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"4e401ab5-2d0b-4e8c-bbc7-b9b94b957708","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+  ],
+  "nineSlice": null,
+  "origin": 4,
+  "parent": {
+    "name": "Lepperman",
+    "path": "folders/Sprites/Player/Lepperman.yy",
+  },
+  "preMultiplyAlpha": false,
+  "sequence": {
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "spr_playerL_supertaunt1",
+    "autoRecord": true,
+    "backdropHeight": 768,
+    "backdropImageOpacity": 0.5,
+    "backdropImagePath": "",
+    "backdropWidth": 1366,
+    "backdropXOffset": 0.0,
+    "backdropYOffset": 0.0,
+    "events": {"resourceType":"KeyframeStore<MessageEventKeyframe>","resourceVersion":"1.0","Keyframes":[],},
+    "eventStubScript": null,
+    "eventToFunction": {},
+    "length": 11.0,
+    "lockOrigin": false,
+    "moments": {"resourceType":"KeyframeStore<MomentsEventKeyframe>","resourceVersion":"1.0","Keyframes":[],},
+    "playback": 1,
+    "playbackSpeed": 1.0,
+    "playbackSpeedType": 1,
+    "showBackdrop": true,
+    "showBackdropImage": false,
+    "timeUnits": 1,
+    "tracks": [
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"ee336a6c-d6f2-448d-9b5e-1dca2b0f5c96","path":"sprites/spr_playerL_supertaunt1/spr_playerL_supertaunt1.yy",},},},"Disabled":false,"id":"8988029a-9e04-4950-b99c-46e48ce74d11","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"af02914d-557a-40f9-b328-6e37afb94801","path":"sprites/spr_playerL_supertaunt1/spr_playerL_supertaunt1.yy",},},},"Disabled":false,"id":"3927b209-eea9-4e4e-af2a-1cf363789049","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"eecc89e8-dc95-4acf-94b7-110a678d9b43","path":"sprites/spr_playerL_supertaunt1/spr_playerL_supertaunt1.yy",},},},"Disabled":false,"id":"5f5e0679-996b-4f9c-a6ff-73c1596fe6cb","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"3415e7b8-7400-4f94-95b2-068b4fdb9f9e","path":"sprites/spr_playerL_supertaunt1/spr_playerL_supertaunt1.yy",},},},"Disabled":false,"id":"63e4755d-2a19-4232-803a-8235927c0418","IsCreationKey":false,"Key":3.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"ba47914e-ef3c-419f-8009-468edd80b130","path":"sprites/spr_playerL_supertaunt1/spr_playerL_supertaunt1.yy",},},},"Disabled":false,"id":"4eb2a285-633c-4c21-9524-0f24e25e57ac","IsCreationKey":false,"Key":4.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"edca807c-df15-466c-8347-1524616874cb","path":"sprites/spr_playerL_supertaunt1/spr_playerL_supertaunt1.yy",},},},"Disabled":false,"id":"3c7e20f7-aa01-4bfc-a784-126147312c82","IsCreationKey":false,"Key":5.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"e97357cd-b940-41cd-abd1-2599e0677593","path":"sprites/spr_playerL_supertaunt1/spr_playerL_supertaunt1.yy",},},},"Disabled":false,"id":"2ccbea73-7538-4123-859e-b3f1d1fbfc01","IsCreationKey":false,"Key":6.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"064d567d-ed9f-468d-a59d-50325752fcc0","path":"sprites/spr_playerL_supertaunt1/spr_playerL_supertaunt1.yy",},},},"Disabled":false,"id":"c49ee38a-5b25-4269-a0d9-3b7f55e2bca9","IsCreationKey":false,"Key":7.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"92f0b8a9-ee4c-44a7-991b-5496a19f6752","path":"sprites/spr_playerL_supertaunt1/spr_playerL_supertaunt1.yy",},},},"Disabled":false,"id":"61c51ade-2879-4350-af6a-8fbe3a006897","IsCreationKey":false,"Key":8.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"0c7c7a14-a459-4add-8062-a652b56a4c04","path":"sprites/spr_playerL_supertaunt1/spr_playerL_supertaunt1.yy",},},},"Disabled":false,"id":"ca03be2c-f7b4-46a5-b00d-b19ce6c3fab3","IsCreationKey":false,"Key":9.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"3d3c52b5-8d24-421d-a88d-b88535ce0123","path":"sprites/spr_playerL_supertaunt1/spr_playerL_supertaunt1.yy",},},},"Disabled":false,"id":"46b48fe0-7954-4128-9a2d-165ebc28b4e9","IsCreationKey":false,"Key":10.0,"Length":1.0,"Stretch":false,},
+          ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
+    ],
+    "visibleRange": null,
+    "volume": 1.0,
+    "xorigin": 129,
+    "yorigin": 126,
+  },
+  "swatchColours": null,
+  "swfPrecision": 2.525,
+  "textureGroupId": {
+    "name": "Default",
+    "path": "texturegroups/Default",
+  },
+  "type": 0,
+  "VTile": false,
+  "width": 258,
 }
