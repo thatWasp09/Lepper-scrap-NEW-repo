@@ -605,8 +605,8 @@ function scr_characterspr()
 		spr_crouchslide = spr_playerL_crouchslip
 		spr_crouch = spr_playerL_crouch
 		spr_bump = spr_playerN_bump
-		spr_victory = spr_playerN_victory
-		spr_hurt = spr_playerN_hurt
+		spr_victory = spr_playerL_keydoor
+		spr_hurt = spr_playerL_hurtjump
 		spr_climbwall = spr_playerN_climbwall
 		spr_grab = spr_playerL_grab
 		spr_mach2jump = spr_playerN_mach2jump
@@ -695,8 +695,8 @@ function scr_characterspr()
 		spr_facehurt = spr_playerN_facehurt
 		spr_walljumpend = spr_playerL_walljumploop
 		spr_suplexdash = spr_playerL_grab
-		spr_suplexdashjumpstart = spr_playerN_suplexgrabjumpstart
-		spr_suplexdashjump = spr_playerN_suplexgrabjump
+		spr_suplexdashjumpstart = spr_playerL_suplexgrabjumpstart
+		spr_suplexdashjump = spr_playerL_suplexgrabjump
 		spr_shotgunsuplexdash = spr_playerN_minigundash
 		spr_rollgetup = spr_playerL_rollgetup
 		spr_superjumppreplight = spr_playerL_Sjumpflash
@@ -808,8 +808,8 @@ function scr_characterspr()
 		spr_rageidle = spr_playerL_rageidle
 		spr_ragemove = spr_playerL_ragewalk
 		spr_parry1 = spr_playerL_parry1
-		spr_parry2 = spr_playerL_parry2
-		spr_parry3 = spr_playerL_parry3
+		spr_parry2 = spr_playerL_parry1
+		spr_parry3 = spr_playerL_parry1
 		spr_dead = spr_playerN_deathend
 		spr_suplexbump = spr_playerL_suplexbump
 		spr_grind = spr_playerN_grind
