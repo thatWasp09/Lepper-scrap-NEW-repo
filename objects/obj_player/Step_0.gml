@@ -1461,3 +1461,5 @@ if (distance_to_object(obj_spike) < 500)
 		}
 	}
 }
+if floor(image_index) == image_number - 1 && sprite_index == spr_playerL_bosscutscene3
+sprite_index = spr_playerL_bosscutscene4

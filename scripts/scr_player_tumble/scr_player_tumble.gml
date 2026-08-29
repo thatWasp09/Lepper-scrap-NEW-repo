@@ -11,7 +11,7 @@ function scr_player_tumble()
     mask_index = spr_crouchmask
     if (sprite_index == spr_tumblestart)
         movespeed = 6
-    if ((!grounded) && (sprite_index == spr_crouchslip || sprite_index == spr_machroll || sprite_index == spr_mach2jump || sprite_index == spr_backslide || sprite_index == spr_backslideland))
+    if ((!grounded) && (sprite_index == spr_crouchslip || sprite_index == spr_playerL_machrollbegin || sprite_index == spr_machroll || sprite_index == spr_mach2jump || sprite_index == spr_backslide || sprite_index == spr_backslideland))
     {
         if (!ispeppino)
         {
@@ -124,11 +124,13 @@ function scr_player_tumble()
         sprite_index = spr_player_jumpdive2
     if (sprite_index == spr_player_Sjumpcancelland && floor(image_index) == (image_number - 1))
         sprite_index = spr_player_Sjumpcancelslide
+	if (sprite_index == spr_playerL_machrollbegin && floor(image_index) == (image_number - 1))
+        sprite_index = spr_machroll
     if (sprite_index == spr_playerL_divestart && floor(image_index) == (image_number - 1))
         sprite_index = spr_dive
     if (sprite_index == spr_player_jumpdive2 && grounded)
         sprite_index = spr_crouchslip
-    if (floor(image_index) == (image_number - 1) && sprite_index == spr_machroll && (movespeed > 12 || islepper))
+    if (floor(image_index) == (image_number - 1) && !islepper && sprite_index == spr_machroll && (movespeed > 12))
     {
         sprite_index = spr_backslideland
         image_index = 0

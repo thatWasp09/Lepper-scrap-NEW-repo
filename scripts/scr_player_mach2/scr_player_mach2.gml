@@ -211,11 +211,16 @@ function scr_player_mach2()
 		if !grounded
 			sprite_index = spr_mach2jump;
 		else
+		{
+			if !islepper
 			sprite_index = spr_machroll;
+			else
+			sprite_index = spr_playerL_machrollbegin;
+		}
 		if character == "V"
 			sprite_index = spr_playerV_divekickstart;
 	}
-	if key_attack && !place_meeting(x + xscale, y, obj_solid) && character == "S" && grounded
+	if key_attack && !place_meeting(x + xscale, y, obj_solid) && character == "S" && grounded && !islepper
 	{
 		state = states.handstandjump;
 		movespeed = 0;	

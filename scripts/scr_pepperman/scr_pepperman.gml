@@ -93,10 +93,15 @@ function scr_pepperman_arenaintro()
 			xscale = -other.image_xscale;
 			if other.sprite_index == spr_pepperman_intro1
 			{
+				if !islepper
+				{
 				if ispeppino
 					sprite_index = spr_player_gnomecutscene1;
 				else
 					sprite_index = spr_playerN_bosscutscene1;
+				}
+				else
+				sprite_index = spr_playerL_bosscutscene1;
 			}
 			if floor(image_index) == image_number - 1
 			{
@@ -122,10 +127,15 @@ function scr_pepperman_arenaintro()
 			with obj_player
 			{
 				image_index = 0;
+				if !islepper
+				{
 				if ispeppino
 					sprite_index = spr_player_gnomecutscene2;
 				else
 					sprite_index = spr_playerN_bosscutscene2;
+				}
+				else
+					sprite_index = spr_playerL_bosscutscene2;
 			}
 		}
 		else if sprite_index == spr_pepperman_intro2
@@ -135,6 +145,8 @@ function scr_pepperman_arenaintro()
 			fmod_event_one_shot_3d("event:/sfx/voice/peppermanlaugh", x, y);
 			with obj_player1
 			{
+				if !islepper
+				{
 				if ispeppino
 				{
 					fmod_event_one_shot("event:/sfx/pep/screamboss");
@@ -145,6 +157,12 @@ function scr_pepperman_arenaintro()
 				{
 					sprite_index = spr_playerN_bosscutscene3;
 					image_index = 0;
+				}
+				}
+				else
+				{
+				sprite_index = spr_playerL_bosscutscene3;
+				image_index = 0;
 				}
 			}
 		}
@@ -164,11 +182,19 @@ function scr_pepperman_arenaintro()
 					spotlightID.expand = true;
 					with obj_player1
 					{
+						if !islepper
+						{
 						if ispeppino
 						{
 							sprite_index = spr_player_screamtransition;
 							image_index = 0;
 							image_speed = 0.35;
+						}
+						}
+						else
+						{
+							sprite_index = spr_playerL_bosscutscene5;
+							image_index = 0;
 						}
 						landAnim = false;
 						tauntstoredstate = states.normal;

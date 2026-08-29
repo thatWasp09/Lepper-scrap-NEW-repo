@@ -202,7 +202,12 @@ function scr_player_mach3()
 				if !grounded
 					sprite_index = spr_mach2jump;
 				else
+				{
+					if !islepper
 					sprite_index = spr_machroll;
+					else
+					sprite_index = spr_playerL_machrollbegin;
+				}
 				if character == "V"
 					sprite_index = spr_playerV_divekickstart;
 			}

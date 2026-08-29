@@ -72,3 +72,10 @@ if !obj_player1.ispeppino
 	vstitleplayer = spr_vstitle_playerN;
 	player_hpsprite = spr_bossfight_noiseHP;
 }
+if obj_player1.islepper
+{
+	playerspr = spr_vslepperman;
+	playersprshadow = spr_vsleppermanshadow;
+	vstitleplayer = spr_vstitle_playerL;
+	player_hpsprite = spr_bossfight_playerLhp;
+}
