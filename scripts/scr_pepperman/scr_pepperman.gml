@@ -685,6 +685,8 @@ function scr_pepperman_phase1hurt()
 {
 	sprite_index = spr_pepperman_hurtplayer;
 	image_speed = 0.35;
+	with(obj_player1)
+	sprite_index = spr_playerL_bosshit
 	scr_boss_phase1hurt(function()
 	{
 		

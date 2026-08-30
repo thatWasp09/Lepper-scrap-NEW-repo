@@ -711,11 +711,11 @@ function scr_characterspr()
 		spr_haulingfall = spr_playerL_haulingfall
 		spr_haulingland = spr_playerL_haulingstart
 		spr_uppercutfinishingblow = spr_playerN_uppercut
-		spr_finishingblow1 = spr_playerN_finishingblow1
-		spr_finishingblow2 = spr_playerN_finishingblow2
-		spr_finishingblow3 = spr_playerN_finishingblow3
-		spr_finishingblow4 = spr_playerN_finishingblow4
-		spr_finishingblow5 = spr_playerN_finishingblow5
+		spr_finishingblow1 = spr_playerL_finishingblow1
+		spr_finishingblow2 = spr_playerL_finishingblow2
+		spr_finishingblow3 = spr_playerL_finishingblow3
+		spr_finishingblow4 = spr_playerL_finishingblow2
+		spr_finishingblow5 = spr_playerL_finishingblow1
 		spr_winding = spr_playerN_winding
 		spr_3hpwalk = spr_playerL_angrywalk
 		spr_3hpidle = spr_playerL_angryidle

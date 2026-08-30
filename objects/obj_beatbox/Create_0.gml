@@ -7,3 +7,5 @@ fmod_event_instance_play(snd);
 fmod_event_one_shot_3d("event:/sfx/misc/breakdance", obj_player1.x, obj_player1.y);
 if !obj_player1.ispeppino
 	sprite_index = spr_beatboxN;
+if !obj_player1.islepper
+	sprite_index = spr_beatboxL;

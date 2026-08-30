@@ -11,6 +11,8 @@ if other.key_up2 && other.ispeppino == ispeppino
 			sprite_index = spr_palettedresserdebris;
 			if !obj_player1.ispeppino
 				sprite_index = spr_palettedresserdebrisN;
+			if obj_player1.islepper
+				sprite_index = spr_palettedresserdebrisL;
 			spr_palette = obj_player1.spr_palette;
 			paletteselect = other.paletteselect;
 			oldpalettetexture = global.palettetexture;

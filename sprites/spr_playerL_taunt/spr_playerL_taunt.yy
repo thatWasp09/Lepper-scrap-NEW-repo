@@ -34,7 +34,7 @@
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"1d0f38cb-4c67-47ed-a2c8-599629cdae07","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 4,
+  "origin": 9,
   "parent": {
     "name": "Lepperman",
     "path": "folders/Sprites/Player/Lepperman.yy",
@@ -82,7 +82,7 @@
     "visibleRange": null,
     "volume": 1.0,
     "xorigin": 79,
-    "yorigin": 76,
+    "yorigin": 97,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,
